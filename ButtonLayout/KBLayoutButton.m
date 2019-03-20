@@ -27,7 +27,7 @@
             self.kb_x -= (allWidth - currentWidth) * 0.5;
             self.kb_width = allWidth;
             
-            self.titleLabel.frame = CGRectMake(0, 0, self.titleLabel.kb_width, self.titleLabelHeight > 0 ? self.titleLabelHeight : self.titleLabel.kb_height);
+            self.titleLabel.frame = CGRectMake(0, 0, self.titleLabel.kb_width, self.titleLabel.kb_height);
         }else{
             CGFloat imageX = (currentWidth - allWidth) * 0.5;
             self.titleLabel.kb_x = imageX;
@@ -49,7 +49,7 @@
             self.kb_y -= (allHeight - currentHeight) * 0.5;
             self.kb_height = allHeight;
             
-            self.titleLabel.frame = CGRectMake(0, self.imageView.kb_maxY + self.margin,self.titleLabelWidth > 0 ? self.titleLabelWidth : self.titleLabel.kb_width, self.titleLabel.kb_height);
+            self.titleLabel.frame = CGRectMake(0, self.imageView.kb_maxY + self.margin, self.titleLabel.kb_width, self.titleLabel.kb_height);
         }else{
             CGFloat imageY = (currentHeight - allHeight) * 0.5;
             self.imageView.kb_y = imageY;
@@ -70,7 +70,7 @@
             self.kb_y -= (allHeight - currentHeight) * 0.5;
             self.kb_height = allHeight;
             
-            self.titleLabel.frame = CGRectMake(0, 0,self.titleLabelWidth > 0 ? self.titleLabelWidth : self.titleLabel.kb_width, self.titleLabel.kb_height);
+            self.titleLabel.frame = CGRectMake(0, 0, self.titleLabel.kb_width, self.titleLabel.kb_height);
         }else{
             CGFloat imageY = (currentHeight - allHeight) * 0.5;
             self.titleLabel.kb_y = imageY;
@@ -92,7 +92,7 @@
             self.kb_x -= (allWidth - currentWidth) * 0.5;
             self.kb_width = allWidth;
             
-            self.titleLabel.frame = CGRectMake(imageWidth + self.margin, 0, self.titleLabel.kb_width, self.titleLabelHeight > 0 ? self.titleLabelHeight : self.titleLabel.kb_height);
+            self.titleLabel.frame = CGRectMake(imageWidth + self.margin, 0, self.titleLabel.kb_width, self.titleLabel.kb_height);
         }else{
             CGFloat imageX = (currentWidth - allWidth) * 0.5;
             self.imageView.kb_x = imageX;

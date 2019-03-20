@@ -10,13 +10,14 @@
 
 @interface KBLayoutButton : UIButton
 
-@property (nonatomic, assign) IBInspectable CGFloat imageX;
-@property (nonatomic, assign) IBInspectable CGFloat imageY;
-
-@property (nonatomic, assign) IBInspectable CGFloat titleLabelX;
-@property (nonatomic, assign) IBInspectable CGFloat titleLabelY;
-@property (nonatomic, assign) IBInspectable CGFloat titleLabelWidth;
-@property (nonatomic, assign) IBInspectable CGFloat titleLabelHeight;
+// 后续添加微调功能
+//@property (nonatomic, assign) IBInspectable CGFloat imageX;
+//@property (nonatomic, assign) IBInspectable CGFloat imageY;
+//
+//@property (nonatomic, assign) IBInspectable CGFloat titleLabelX;
+//@property (nonatomic, assign) IBInspectable CGFloat titleLabelY;
+//@property (nonatomic, assign) IBInspectable CGFloat titleLabelWidth;
+//@property (nonatomic, assign) IBInspectable CGFloat titleLabelHeight;
 
 @property (nonatomic, assign) IBInspectable CGFloat margin;
 
