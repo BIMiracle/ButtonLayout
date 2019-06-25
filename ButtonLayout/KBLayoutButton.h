@@ -8,29 +8,37 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface KBLayoutButton : UIButton
 
-// 后续添加微调功能
 //@property (nonatomic, assign) IBInspectable CGFloat imageX;
 //@property (nonatomic, assign) IBInspectable CGFloat imageY;
-//
+@property (nonatomic, assign) IBInspectable CGFloat imageWidth;
+@property (nonatomic, assign) IBInspectable CGFloat imageHeight;
+
 //@property (nonatomic, assign) IBInspectable CGFloat titleLabelX;
 //@property (nonatomic, assign) IBInspectable CGFloat titleLabelY;
 //@property (nonatomic, assign) IBInspectable CGFloat titleLabelWidth;
-//@property (nonatomic, assign) IBInspectable CGFloat titleLabelHeight;
+@property (nonatomic, assign) IBInspectable CGFloat titleLabelHeight;
 
 @property (nonatomic, assign) IBInspectable CGFloat margin;
 
-// TODO:更改为图片+间距+文字宽度 组成一个组件的中心点
+// 统一以图片高度+margin+文字高度总和为中心点
 
-/** 图片在左 文字在右 居中布局 以文字左边为中心点 (默认) */
-@property (nonatomic, assign) IBInspectable BOOL leftCenter;
+/** 图片在左 文字在右 默认 */
 
+/** 图片在右 文字在左 */
 @property (nonatomic, assign) IBInspectable BOOL rightCenter;
 
-/** 图片在上 文字在下 居中布局 以图片高度+margin+文字高度总和为中心点 */
+/** 图片在上 文字在下 */
 @property (nonatomic, assign) IBInspectable BOOL topCenter;
 
+/** 图片在下 文字在上 */
 @property (nonatomic, assign) IBInspectable BOOL bottomCenter;
+
+/** 是否自动宽度适应 默认为NO 手动设置宽度并计算 */
+@property (nonatomic, assign) IBInspectable BOOL autoWidth;
+/** 是否自动高度适应 默认为NO 手动设置高度并计算 */
+@property (nonatomic, assign) IBInspectable BOOL autoHeight;
 
 @end

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Fs-QD-Voc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Fs-QD-Voc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -157,7 +157,6 @@
                                 <rect key="frame" x="124.5" y="464" width="126" height="180"/>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="0U4-oT-EuN"/>
                                     <constraint firstAttribute="height" constant="180" id="Ab8-DV-yhy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -210,44 +209,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="间距设置不好会遮挡控件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8P-o0-e34">
-                                <rect key="frame" x="92" y="415" width="191" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Enq-lW-dCb">
-                                <rect key="frame" x="124.5" y="144" width="126" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="0E8-4s-YHW"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdD-GU-Nv9" customClass="KBLayoutButton">
-                                <rect key="frame" x="124.5" y="144" width="126" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdD-GU-Nv9" customClass="KBLayoutButton">
+                                <rect key="frame" x="147.5" y="74" width="80.5" height="30"/>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80.5" id="RJs-JQ-4qM"/>
+                                    <constraint firstAttribute="height" constant="30" id="ahf-Wa-Ls3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <state key="normal" title="我的报告" image="medi_re_icon">
+                                <state key="normal" title="我的1" image="medi_re_icon">
                                     <color key="titleColor" red="1" green="0.47843137250000001" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="margin">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoWidth" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageWidth">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageHeight">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoHeight" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2Z-Tz-WRU">
-                                <rect key="frame" x="124.5" y="244" width="126" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Wv9-GJ-Mhf"/>
-                                </constraints>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="imageWidth:30 imageHeight:30 margin:10 autoWidth autoHeight IntrinsicSize:Placeholder 默认的leftCenter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AR-XG-KwZ">
+                                <rect key="frame" x="85" y="104" width="205" height="84"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXD-9P-5k3" customClass="KBLayoutButton">
-                                <rect key="frame" x="124.5" y="244" width="126" height="60"/>
+                                <rect key="frame" x="136" y="194" width="112.5" height="60"/>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <state key="normal" title="我的报告" image="medi_re_icon">
+                                <state key="normal" title="我的2" image="medi_re_icon">
                                     <color key="titleColor" red="1" green="0.47843137250000001" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -255,20 +252,24 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rightCenter" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoWidth" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVd-co-rfi">
-                                <rect key="frame" x="114.5" y="344" width="146" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="O51-rF-Uul"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKc-2o-WUV" customClass="KBLayoutButton">
-                                <rect key="frame" x="124.5" y="344" width="126" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="margin:10 rightCenter autoWidth" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tay-zq-xX9">
+                                <rect key="frame" x="150.5" y="254" width="74" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="89.5" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKc-2o-WUV" customClass="KBLayoutButton">
+                                <rect key="frame" x="157.5" y="314" width="60" height="89.5"/>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89.5" id="d1S-G2-3WL"/>
+                                    <constraint firstAttribute="width" constant="60" id="mAJ-5e-q0D"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <state key="normal" title="我的报告" image="medi_re_icon">
+                                <state key="normal" title="我的3" image="medi_re_icon">
                                     <color key="titleColor" red="1" green="0.47843137250000001" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -276,20 +277,24 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="topCenter" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoWidth" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoHeight" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yG-wt-0uB">
-                                <rect key="frame" x="114.5" y="444" width="146" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="e7D-UN-Yba"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78q-9Z-ztd" customClass="KBLayoutButton">
-                                <rect key="frame" x="124.5" y="444" width="126" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="margin:10 rightCenter autoWidth autoHeight IntrinsicSize:Placeholder" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMC-U0-UUH">
+                                <rect key="frame" x="108" y="403.5" width="159" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78q-9Z-ztd" customClass="KBLayoutButton">
+                                <rect key="frame" x="136" y="473.5" width="103" height="89.5"/>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89.5" id="Y1D-sz-ZXf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <state key="normal" title="我的报告" image="medi_re_icon">
+                                <state key="normal" title="我的4" image="medi_re_icon">
                                     <color key="titleColor" red="1" green="0.47843137250000001" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -297,40 +302,41 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bottomCenter" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoHeight" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="margin:10 rightCenter autoHeight IntrinsicSize:Placeholder" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMb-px-A9Y">
+                                <rect key="frame" x="108" y="563" width="159" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Enq-lW-dCb" firstAttribute="centerY" secondItem="FdD-GU-Nv9" secondAttribute="centerY" id="1FO-fd-Dld"/>
-                            <constraint firstItem="kKc-2o-WUV" firstAttribute="centerX" secondItem="bXD-9P-5k3" secondAttribute="centerX" id="1Z2-og-XTe"/>
-                            <constraint firstItem="s2Z-Tz-WRU" firstAttribute="centerY" secondItem="bXD-9P-5k3" secondAttribute="centerY" id="6Gl-3H-ITR"/>
-                            <constraint firstItem="VVd-co-rfi" firstAttribute="centerX" secondItem="kKc-2o-WUV" secondAttribute="centerX" id="8yH-qh-a5c"/>
-                            <constraint firstItem="Enq-lW-dCb" firstAttribute="width" secondItem="FdD-GU-Nv9" secondAttribute="width" id="BoL-49-zvV"/>
-                            <constraint firstItem="0yG-wt-0uB" firstAttribute="centerY" secondItem="78q-9Z-ztd" secondAttribute="centerY" id="G6w-e0-nDj"/>
-                            <constraint firstItem="VVd-co-rfi" firstAttribute="centerY" secondItem="kKc-2o-WUV" secondAttribute="centerY" id="G9Z-5m-Sc5"/>
-                            <constraint firstItem="kKc-2o-WUV" firstAttribute="top" secondItem="bXD-9P-5k3" secondAttribute="bottom" constant="40" id="HQz-Cg-Omh"/>
-                            <constraint firstItem="78q-9Z-ztd" firstAttribute="centerX" secondItem="kKc-2o-WUV" secondAttribute="centerX" id="Jd2-0l-qbU"/>
-                            <constraint firstItem="bXD-9P-5k3" firstAttribute="centerX" secondItem="FdD-GU-Nv9" secondAttribute="centerX" id="KU2-Pk-ACX"/>
-                            <constraint firstItem="bXD-9P-5k3" firstAttribute="top" secondItem="Enq-lW-dCb" secondAttribute="bottom" constant="40" id="PYa-IO-laP"/>
-                            <constraint firstItem="Enq-lW-dCb" firstAttribute="centerX" secondItem="FdD-GU-Nv9" secondAttribute="centerX" id="SX6-XJ-JuW"/>
-                            <constraint firstItem="z8P-o0-e34" firstAttribute="top" secondItem="kKc-2o-WUV" secondAttribute="bottom" constant="11" id="aIh-Vr-AkW"/>
-                            <constraint firstItem="s2Z-Tz-WRU" firstAttribute="centerX" secondItem="bXD-9P-5k3" secondAttribute="centerX" id="dur-K5-Xm4"/>
-                            <constraint firstItem="VVd-co-rfi" firstAttribute="width" secondItem="kKc-2o-WUV" secondAttribute="width" constant="20" id="f2H-vb-AEp"/>
-                            <constraint firstItem="78q-9Z-ztd" firstAttribute="top" secondItem="kKc-2o-WUV" secondAttribute="bottom" constant="40" id="h2k-eu-11H"/>
-                            <constraint firstItem="s2Z-Tz-WRU" firstAttribute="width" secondItem="bXD-9P-5k3" secondAttribute="width" id="jk4-4Z-0Ff"/>
+                            <constraint firstItem="2AR-XG-KwZ" firstAttribute="centerX" secondItem="acA-ae-gRG" secondAttribute="centerX" id="5vw-MX-1vh"/>
+                            <constraint firstItem="kKc-2o-WUV" firstAttribute="centerX" secondItem="acA-ae-gRG" secondAttribute="centerX" id="6VU-e2-Kvo"/>
+                            <constraint firstItem="oMC-U0-UUH" firstAttribute="top" secondItem="kKc-2o-WUV" secondAttribute="bottom" id="AEw-uy-HtU"/>
+                            <constraint firstItem="kKc-2o-WUV" firstAttribute="top" secondItem="bXD-9P-5k3" secondAttribute="bottom" constant="60" id="HQz-Cg-Omh"/>
+                            <constraint firstItem="bXD-9P-5k3" firstAttribute="top" secondItem="FdD-GU-Nv9" secondAttribute="bottom" constant="90" id="Mvr-Yx-BnQ"/>
+                            <constraint firstItem="HMb-px-A9Y" firstAttribute="top" secondItem="78q-9Z-ztd" secondAttribute="bottom" id="Rrg-a5-fqs"/>
+                            <constraint firstItem="oMC-U0-UUH" firstAttribute="centerX" secondItem="acA-ae-gRG" secondAttribute="centerX" id="Yig-wo-DFR"/>
+                            <constraint firstItem="Tay-zq-xX9" firstAttribute="centerX" secondItem="acA-ae-gRG" secondAttribute="centerX" id="dWW-FX-Dfg"/>
+                            <constraint firstItem="78q-9Z-ztd" firstAttribute="top" secondItem="kKc-2o-WUV" secondAttribute="bottom" constant="70" id="h2k-eu-11H"/>
+                            <constraint firstItem="78q-9Z-ztd" firstAttribute="centerX" secondItem="acA-ae-gRG" secondAttribute="centerX" id="iCd-Oe-ggs"/>
                             <constraint firstItem="FdD-GU-Nv9" firstAttribute="centerX" secondItem="acA-ae-gRG" secondAttribute="centerX" id="lCC-QL-XIC"/>
-                            <constraint firstItem="0yG-wt-0uB" firstAttribute="width" secondItem="78q-9Z-ztd" secondAttribute="width" constant="20" id="llc-bd-zxf"/>
-                            <constraint firstItem="z8P-o0-e34" firstAttribute="centerX" secondItem="kKc-2o-WUV" secondAttribute="centerX" id="qJ6-Qs-ek5"/>
-                            <constraint firstItem="FdD-GU-Nv9" firstAttribute="top" secondItem="fv0-hI-nJH" secondAttribute="top" constant="80" id="waj-mE-Twd"/>
-                            <constraint firstItem="0yG-wt-0uB" firstAttribute="centerX" secondItem="78q-9Z-ztd" secondAttribute="centerX" id="xwg-2G-MdS"/>
+                            <constraint firstItem="2AR-XG-KwZ" firstAttribute="top" secondItem="FdD-GU-Nv9" secondAttribute="bottom" id="niq-Ej-WKV"/>
+                            <constraint firstItem="Tay-zq-xX9" firstAttribute="top" secondItem="bXD-9P-5k3" secondAttribute="bottom" id="oqO-SE-Xtw"/>
+                            <constraint firstItem="HMb-px-A9Y" firstAttribute="centerX" secondItem="acA-ae-gRG" secondAttribute="centerX" id="r9E-os-tI9"/>
+                            <constraint firstItem="bXD-9P-5k3" firstAttribute="centerX" secondItem="acA-ae-gRG" secondAttribute="centerX" id="tCb-SE-rPF"/>
+                            <constraint firstItem="FdD-GU-Nv9" firstAttribute="top" secondItem="fv0-hI-nJH" secondAttribute="top" constant="10" id="waj-mE-Twd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fv0-hI-nJH"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1B-1m-vx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="-190"/>
+            <point key="canvasLocation" x="1124" y="-190.25487256371815"/>
         </scene>
     </scenes>
     <resources>

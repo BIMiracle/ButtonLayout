@@ -23,7 +23,7 @@
 
 @property (nonatomic, assign, readonly) CGRect kb_sizeFrame;
 
-@property (nonatomic, strong, nullable) UIViewController *kb_viewController;
+@property (nonatomic, strong) UIViewController *kb_viewController;
 
 
 @property (nonatomic, copy) void(^kb_layoutSubviewsCallback)(UIView *view);
