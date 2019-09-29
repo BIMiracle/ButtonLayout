@@ -1,9 +1,9 @@
 //
-//  KBLayoutButton.m
-//  manying
+//  KBLayoutButton.h
+//  AIWE
 //
-//  Created by BIMiracle on 2018/4/3.
-//  Copyright © 2018年 BIMiracle. All rights reserved.
+//  Created by BIMiracle on 2019/6/26.
+//  Copyright © 2019年 BIMiracle. All rights reserved.
 //
 
 #import "KBLayoutButton.h"

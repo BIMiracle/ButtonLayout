@@ -1,9 +1,9 @@
 //
-//  UIView+KBExtension.h
-//  YoungPin
+//  KBLayoutButton.h
+//  AIWE
 //
-//  Created by BIMiracle on 2017/7/4.
-//  Copyright © 2017年 BIMiracle. All rights reserved.
+//  Created by BIMiracle on 2019/6/26.
+//  Copyright © 2019年 BIMiracle. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
