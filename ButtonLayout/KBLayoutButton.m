@@ -8,11 +8,39 @@
 
 #import "KBLayoutButton.h"
 #import "UIView+KBExtension.h"
-#import "QMUICommonDefines.h"
 
 #define KBErrorLog(...) printf("❗️❗️❗️Error---- [%s] %s [第%d行] : %s\n", __TIME__, __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String])
 
 @implementation KBLayoutButton
+
+CG_INLINE CGFloat
+removeFloatMin2(CGFloat floatValue) {
+    return floatValue == CGFLOAT_MIN ? 0 : floatValue;
+}
+
+CG_INLINE UIEdgeInsets
+UIEdgeInsetsRemoveFloatMin2(UIEdgeInsets insets) {
+    UIEdgeInsets result = UIEdgeInsetsMake(removeFloatMin2(insets.top), removeFloatMin2(insets.left), removeFloatMin2(insets.bottom), removeFloatMin2(insets.right));
+    return result;
+}
+
+CG_INLINE CGFloat
+flatSpecificScale2(CGFloat floatValue, CGFloat scale) {
+    floatValue = removeFloatMin2(floatValue);
+    scale = scale ?: [[UIScreen mainScreen] scale];
+    CGFloat flattedValue = ceil(floatValue * scale) / scale;
+    return flattedValue;
+}
+
+CG_INLINE CGFloat
+UIEdgeInsetsGetHorizontalValue2(UIEdgeInsets insets) {
+    return insets.left + insets.right;
+}
+
+CG_INLINE CGFloat
+UIEdgeInsetsGetVerticalValue2(UIEdgeInsets insets) {
+    return insets.top + insets.bottom;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -37,69 +65,69 @@
     self.adjustsImageWhenDisabled = NO;
     
     // 图片默认在按钮左边，与系统UIButton保持一致
-    self.imagePosition = QMUIButtonImagePositionLeft;
+    self.imagePosition = KBButtonImagePositionLeft;
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
     // 如果调用 sizeToFit，那么传进来的 size 就是当前按钮的 size，此时的计算不要去限制宽高
     if (CGSizeEqualToSize(self.bounds.size, size)) {
-        size = CGSizeMax;
+        size = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);
     }
     
     BOOL isImageViewShowing = !!self.currentImage;
     BOOL isTitleLabelShowing = !!self.currentTitle || self.currentAttributedTitle;
     CGSize imageTotalSize = CGSizeZero;// 包含 imageEdgeInsets 那些空间
     CGSize titleTotalSize = CGSizeZero;// 包含 titleEdgeInsets 那些空间
-    CGFloat spacingBetweenImageAndTitle = flat(isImageViewShowing && isTitleLabelShowing ? self.spacingBetweenImageAndTitle : 0);// 如果图片或文字某一者没显示，则这个 spacing 不考虑进布局
-    UIEdgeInsets contentEdgeInsets = UIEdgeInsetsRemoveFloatMin(self.contentEdgeInsets);
+    CGFloat spacingBetweenImageAndTitle = flatSpecificScale2(isImageViewShowing && isTitleLabelShowing ? self.margin : 0 ,0);// 如果图片或文字某一者没显示，则这个 spacing 不考虑进布局
+    UIEdgeInsets contentEdgeInsets = UIEdgeInsetsRemoveFloatMin2(self.contentEdgeInsets);
     CGSize resultSize = CGSizeZero;
-    CGSize contentLimitSize = CGSizeMake(size.width - UIEdgeInsetsGetHorizontalValue(contentEdgeInsets), size.height - UIEdgeInsetsGetVerticalValue(contentEdgeInsets));
+    CGSize contentLimitSize = CGSizeMake(size.width - UIEdgeInsetsGetHorizontalValue2(contentEdgeInsets), size.height - UIEdgeInsetsGetVerticalValue2(contentEdgeInsets));
     
     switch (self.imagePosition) {
-        case QMUIButtonImagePositionTop:
-        case QMUIButtonImagePositionBottom: {
+        case KBButtonImagePositionTop:
+        case KBButtonImagePositionBottom: {
             // 图片和文字上下排版时，宽度以文字或图片的最大宽度为最终宽度
             if (isImageViewShowing) {
-                CGFloat imageLimitWidth = contentLimitSize.width - UIEdgeInsetsGetHorizontalValue(self.imageEdgeInsets);
+                CGFloat imageLimitWidth = contentLimitSize.width - UIEdgeInsetsGetHorizontalValue2(self.imageEdgeInsets);
                 CGSize imageSize = self.imageView.image ? [self.imageView sizeThatFits:CGSizeMake(imageLimitWidth, CGFLOAT_MAX)] : self.currentImage.size;
                 imageSize.width = fmin(imageSize.width, imageLimitWidth);
-                imageTotalSize = CGSizeMake(imageSize.width + UIEdgeInsetsGetHorizontalValue(self.imageEdgeInsets), imageSize.height + UIEdgeInsetsGetVerticalValue(self.imageEdgeInsets));
+                imageTotalSize = CGSizeMake(imageSize.width + UIEdgeInsetsGetHorizontalValue2(self.imageEdgeInsets), imageSize.height + UIEdgeInsetsGetVerticalValue2(self.imageEdgeInsets));
             }
             
             if (isTitleLabelShowing) {
-                CGSize titleLimitSize = CGSizeMake(contentLimitSize.width - UIEdgeInsetsGetHorizontalValue(self.titleEdgeInsets), contentLimitSize.height - imageTotalSize.height - spacingBetweenImageAndTitle - UIEdgeInsetsGetVerticalValue(self.titleEdgeInsets));
+                CGSize titleLimitSize = CGSizeMake(contentLimitSize.width - UIEdgeInsetsGetHorizontalValue2(self.titleEdgeInsets), contentLimitSize.height - imageTotalSize.height - spacingBetweenImageAndTitle - UIEdgeInsetsGetVerticalValue2(self.titleEdgeInsets));
                 CGSize titleSize = [self.titleLabel sizeThatFits:titleLimitSize];
                 titleSize.height = fmin(titleSize.height, titleLimitSize.height);
-                titleTotalSize = CGSizeMake(titleSize.width + UIEdgeInsetsGetHorizontalValue(self.titleEdgeInsets), titleSize.height + UIEdgeInsetsGetVerticalValue(self.titleEdgeInsets));
+                titleTotalSize = CGSizeMake(titleSize.width + UIEdgeInsetsGetHorizontalValue2(self.titleEdgeInsets), titleSize.height + UIEdgeInsetsGetVerticalValue2(self.titleEdgeInsets));
             }
             
-            resultSize.width = UIEdgeInsetsGetHorizontalValue(contentEdgeInsets);
+            resultSize.width = UIEdgeInsetsGetHorizontalValue2(contentEdgeInsets);
             resultSize.width += fmax(imageTotalSize.width, titleTotalSize.width);
-            resultSize.height = UIEdgeInsetsGetVerticalValue(contentEdgeInsets) + imageTotalSize.height + spacingBetweenImageAndTitle + titleTotalSize.height;
+            resultSize.height = UIEdgeInsetsGetVerticalValue2(contentEdgeInsets) + imageTotalSize.height + spacingBetweenImageAndTitle + titleTotalSize.height;
         }
             break;
             
-        case QMUIButtonImagePositionLeft:
-        case QMUIButtonImagePositionRight: {
+        case KBButtonImagePositionLeft:
+        case KBButtonImagePositionRight: {
             // 图片和文字水平排版时，高度以文字或图片的最大高度为最终高度
-            // 注意这里有一个和系统不一致的行为：当 titleLabel 为多行时，系统的 sizeThatFits: 计算结果固定是单行的，所以当 QMUIButtonImagePositionLeft 并且titleLabel 多行的情况下，QMUIButton 计算的结果与系统不一致
+            // 注意这里有一个和系统不一致的行为：当 titleLabel 为多行时，系统的 sizeThatFits: 计算结果固定是单行的，所以当 KBButtonImagePositionLeft 并且titleLabel 多行的情况下，Button 计算的结果与系统不一致
             
             if (isImageViewShowing) {
-                CGFloat imageLimitHeight = contentLimitSize.height - UIEdgeInsetsGetVerticalValue(self.imageEdgeInsets);
+                CGFloat imageLimitHeight = contentLimitSize.height - UIEdgeInsetsGetVerticalValue2(self.imageEdgeInsets);
                 CGSize imageSize = self.imageView.image ? [self.imageView sizeThatFits:CGSizeMake(CGFLOAT_MAX, imageLimitHeight)] : self.currentImage.size;
                 imageSize.height = fmin(imageSize.height, imageLimitHeight);
-                imageTotalSize = CGSizeMake(imageSize.width + UIEdgeInsetsGetHorizontalValue(self.imageEdgeInsets), imageSize.height + UIEdgeInsetsGetVerticalValue(self.imageEdgeInsets));
+                imageTotalSize = CGSizeMake(imageSize.width + UIEdgeInsetsGetHorizontalValue2(self.imageEdgeInsets), imageSize.height + UIEdgeInsetsGetVerticalValue2(self.imageEdgeInsets));
             }
             
             if (isTitleLabelShowing) {
-                CGSize titleLimitSize = CGSizeMake(contentLimitSize.width - UIEdgeInsetsGetHorizontalValue(self.titleEdgeInsets) - imageTotalSize.width - spacingBetweenImageAndTitle, contentLimitSize.height - UIEdgeInsetsGetVerticalValue(self.titleEdgeInsets));
+                CGSize titleLimitSize = CGSizeMake(contentLimitSize.width - UIEdgeInsetsGetHorizontalValue2(self.titleEdgeInsets) - imageTotalSize.width - spacingBetweenImageAndTitle, contentLimitSize.height - UIEdgeInsetsGetVerticalValue2(self.titleEdgeInsets));
                 CGSize titleSize = [self.titleLabel sizeThatFits:titleLimitSize];
                 titleSize.height = fmin(titleSize.height, titleLimitSize.height);
-                titleTotalSize = CGSizeMake(titleSize.width + UIEdgeInsetsGetHorizontalValue(self.titleEdgeInsets), titleSize.height + UIEdgeInsetsGetVerticalValue(self.titleEdgeInsets));
+                titleTotalSize = CGSizeMake(titleSize.width + UIEdgeInsetsGetHorizontalValue2(self.titleEdgeInsets), titleSize.height + UIEdgeInsetsGetVerticalValue2(self.titleEdgeInsets));
             }
             
-            resultSize.width = UIEdgeInsetsGetHorizontalValue(contentEdgeInsets) + imageTotalSize.width + spacingBetweenImageAndTitle + titleTotalSize.width;
-            resultSize.height = UIEdgeInsetsGetVerticalValue(contentEdgeInsets);
+            resultSize.width = UIEdgeInsetsGetHorizontalValue2(contentEdgeInsets) + imageTotalSize.width + spacingBetweenImageAndTitle + titleTotalSize.width;
+            resultSize.height = UIEdgeInsetsGetVerticalValue2(contentEdgeInsets);
             resultSize.height += fmax(imageTotalSize.height, titleTotalSize.height);
         }
             break;
@@ -108,7 +136,7 @@
 }
 
 - (CGSize)intrinsicContentSize {
-    return [self sizeThatFits:CGSizeMax];
+    return [self sizeThatFits:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
 }
 
 - (void)layoutSubviews{
@@ -243,13 +271,7 @@
 //    NSLog(@"%@  %@",self.titleLabel.text,NSStringFromCGRect(self.frame));
 }
 
-- (void)setSpacingBetweenImageAndTitle:(CGFloat)spacingBetweenImageAndTitle {
-    _spacingBetweenImageAndTitle = spacingBetweenImageAndTitle;
-    
-    [self setNeedsLayout];
-}
-
-- (void)setImagePosition:(QMUIButtonImagePosition)imagePosition {
+- (void)setImagePosition:(KBButtonImagePosition)imagePosition {
     _imagePosition = imagePosition;
     
     [self setNeedsLayout];
@@ -257,25 +279,24 @@
 
 - (void)setRightCenter:(BOOL)rightCenter{
     _rightCenter = rightCenter;
-    _imagePosition = QMUIButtonImagePositionRight;
+    _imagePosition = KBButtonImagePositionRight;
     [self setNeedsLayout];
 }
 
 - (void)setTopCenter:(BOOL)topCenter{
     _topCenter = topCenter;
-    _imagePosition = QMUIButtonImagePositionTop;
+    _imagePosition = KBButtonImagePositionTop;
     [self setNeedsLayout];
 }
 
 - (void)setBottomCenter:(BOOL)bottomCenter{
     _bottomCenter = bottomCenter;
-    _imagePosition = QMUIButtonImagePositionBottom;
+    _imagePosition = KBButtonImagePositionBottom;
     [self setNeedsLayout];
 }
 
 - (void)setMargin:(CGFloat)margin{
     _margin = margin;
-    _spacingBetweenImageAndTitle = margin;
     [self setNeedsLayout];
 }
 
