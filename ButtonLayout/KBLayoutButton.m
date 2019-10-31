@@ -165,7 +165,7 @@ UIEdgeInsetsGetVerticalValue2(UIEdgeInsets insets) {
             self.imageView.frame = CGRectMake(self.titleLabel.kb_maxX + self.margin, 0, imageWidth, imageHeight);
             self.imageView.kb_centerY = self.kb_centerY;
 
-            if (self.kb_width < allWidth) {
+            if ((self.kb_width + 0.001) < allWidth) {
                 KBErrorLog(@"%@设置的Button宽度不能低于 %f",self.titleLabel.text,allWidth);
             }
         }
@@ -173,7 +173,7 @@ UIEdgeInsetsGetVerticalValue2(UIEdgeInsets insets) {
         if (self.autoHeight) {
             self.kb_height = allHeight;
         }else{
-            if (self.kb_height < allHeight) {
+            if ((self.kb_height + 0.001) < allHeight) {
                 KBErrorLog(@"%@设置的Button高度不能低于 %f",self.titleLabel.text,allWidth);
             }
         }
@@ -194,7 +194,7 @@ UIEdgeInsetsGetVerticalValue2(UIEdgeInsets insets) {
 
             self.titleLabel.frame = CGRectMake(0, self.imageView.kb_maxY + self.margin, self.titleLabel.kb_width, self.titleLabelHeight > 0 ? self.titleLabelHeight : self.titleLabel.kb_height);
             self.titleLabel.kb_centerX = self.kb_centerX;
-            if (self.kb_height < allHeight) {
+            if ((self.kb_height + 0.001) < allHeight) {
                 KBErrorLog(@"%@设置的Button高度不能低于 %f",self.titleLabel.text,allHeight);
             }
         }
@@ -203,7 +203,7 @@ UIEdgeInsetsGetVerticalValue2(UIEdgeInsets insets) {
         if (self.autoWidth) {
             self.kb_width = allWidth;
         }else{
-            if (self.kb_width < allWidth) {
+            if ((self.kb_width + 0.001) < allWidth) {
                 KBErrorLog(@"%@设置的Button宽度不能低于 %f",self.titleLabel.text,allWidth);
             }
         }
@@ -225,7 +225,7 @@ UIEdgeInsetsGetVerticalValue2(UIEdgeInsets insets) {
 
             self.imageView.frame = CGRectMake(0, self.titleLabel.kb_maxY + self.margin, imageWidth, imageHeight);
             self.imageView.kb_centerX = self.kb_centerX;
-            if (self.kb_height < allHeight) {
+            if ((self.kb_height + 0.001) < allHeight) {
                 KBErrorLog(@"%@设置的Button高度不能低于 %f",self.titleLabel.text,allHeight);
             }
         }
@@ -233,7 +233,7 @@ UIEdgeInsetsGetVerticalValue2(UIEdgeInsets insets) {
         if (self.autoWidth) {
             self.kb_width = allWidth;
         }else{
-            if (self.kb_width < allWidth) {
+            if ((self.kb_width + 0.001) < allWidth) {
                 KBErrorLog(@"%@设置的Button宽度不能低于 %f",self.titleLabel.text,allWidth);
             }
         }
@@ -255,7 +255,7 @@ UIEdgeInsetsGetVerticalValue2(UIEdgeInsets insets) {
             self.imageView.kb_centerY = self.kb_centerY;
             self.titleLabel.kb_x = self.imageView.kb_maxX + self.margin;
 
-            if (self.kb_width < allWidth) {
+            if ((self.kb_width + 0.001) < allWidth) {
                 KBErrorLog(@"%@设置的Button宽度不能低于 %f",self.titleLabel.text,allWidth);
             }
         }
@@ -263,7 +263,7 @@ UIEdgeInsetsGetVerticalValue2(UIEdgeInsets insets) {
         if (self.autoHeight) {
             self.kb_height = allHeight;
         }else{
-            if (self.kb_height < allHeight) {
+            if ((self.kb_height + 0.001) < allHeight) {
                 KBErrorLog(@"%@设置的Button高度不能低于 %f",self.titleLabel.text,allWidth);
             }
         }
