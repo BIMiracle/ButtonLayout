@@ -57,6 +57,7 @@
 		044C546A2242099A00639EB7 /* KBLayoutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLayoutButton.m; sourceTree = "<group>"; };
 		044C546F22420A2500639EB7 /* UIView+KBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KBExtension.h"; sourceTree = "<group>"; };
 		044C547022420A2500639EB7 /* UIView+KBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KBExtension.m"; sourceTree = "<group>"; };
+		04F5A8C4236A91A200C292B5 /* QMUICommonDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUICommonDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +117,7 @@
 				044C546A2242099A00639EB7 /* KBLayoutButton.m */,
 				044C546F22420A2500639EB7 /* UIView+KBExtension.h */,
 				044C547022420A2500639EB7 /* UIView+KBExtension.m */,
+				04F5A8C4236A91A200C292B5 /* QMUICommonDefines.h */,
 				044C54402241F29800639EB7 /* Assets.xcassets */,
 				044C54422241F29800639EB7 /* LaunchScreen.storyboard */,
 				044C54452241F29800639EB7 /* Info.plist */,
